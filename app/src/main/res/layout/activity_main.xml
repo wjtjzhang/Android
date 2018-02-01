@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lele.fivelinkball.MainActivity">
 
-    <com.lele.fivelinkball.com.lele.fivelinkball.view.FiveLinkBallView
+    <com.lele.fivelinkball.FiveLinkBallView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>
