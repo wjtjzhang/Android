@@ -1,5 +1,7 @@
 package com.lele.fivelinkball;
 
+import com.lele.fivelinkball.Ball.Ball;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,6 @@ public class FiveLinkBall {
         this.cols = cols;
         this.colors = colors;
         reset();
-        addRandomColorsBall(3);
     }
 
     public static Ball find(List<Ball> balls, Ball point) {
@@ -93,13 +94,12 @@ public class FiveLinkBall {
         }
     }
 
-    public void addRandomColorsBall(int num) {
-
-        for (int i = 0; i < num; i++) {
+    public void addRandomColorsBall(int[] num) {
+        for (int i = 0; i < num.length; i++) {
             if (!emptyBalls.isEmpty()) {
                 int position = (int) (Math.random() * emptyBalls.size());
                 Ball ball = emptyBalls.get(position);
-                grid[ball.x][ball.y] = (int) (Math.random() * colors);
+                grid[ball.x][ball.y] = num[i];
                 emptyBalls.remove(position);
             }
         }
@@ -211,21 +211,4 @@ public class FiveLinkBall {
         return grid;
     }
 
-    public static class Ball {
-        public int x;
-        public int y;
-        public int F;
-        public int G;
-        public int H;
-        public Ball parent;
-
-        public Ball(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public void calcF() {
-            this.F = this.G + this.H;
-        }
-    }
 }
